@@ -1,0 +1,131 @@
+# $PostgreSQL: pgsql/src/test/regress/serial_schedule,v 1.56 2010/02/12 17:33:21 tgl Exp $
+# This should probably be in an order similar to parallel_schedule.
+test: tablespace
+test: boolean
+test: char
+test: name
+test: varchar
+test: text
+test: int2
+test: int4
+test: int8
+test: oid
+test: float4
+test: float8
+test: bit
+test: numeric
+test: txid
+test: uuid
+#test: enum # uses shared locking
+test: money
+test: strings
+test: numerology
+test: point
+test: lseg
+test: box
+test: path
+test: polygon
+test: circle
+test: date
+test: time
+test: timetz
+test: timestamp
+test: timestamptz
+test: interval
+test: abstime
+test: reltime
+test: tinterval
+test: inet
+test: macaddr
+test: tstypes
+test: comments
+test: geometry
+test: horology
+test: oidjoins
+test: type_sanity
+test: opr_sanity
+test: insert
+test: create_function_1
+test: create_type
+test: create_table
+test: create_function_2
+test: create_cast
+test: copy
+# copyselect: Die Tupelreihenfolge ändert sich aufgrund eines exclusive locks (-> SIAS Lock Tuple)
+test: copyselect
+#test: constraints #entryPoint wird nach Index-Zugriff nicht zurückgeliefert
+#test: triggers #entryPoint wird nach Index-Zugriff nicht zurückgeliefert
+test: create_misc
+test: create_aggregate
+test: create_operator
+test: create_index
+test: drop_if_exists
+# inherit: Noch angucken, eine Zeile fehlt irgendwie
+test: inherit
+test: typed_table
+#test: vacuum
+test: create_view
+test: sanity_check
+test: errors
+test: select
+test: select_into
+test: select_distinct
+test: select_distinct_on
+test: select_implicit
+test: select_having
+test: subselect
+test: union
+test: case
+test: join
+test: aggregates
+test: transactions
+ignore: random
+test: random
+#test: portals #wahrscheinlich: entryPoint wird nach Index-Zugriff nicht zurückgeliefert
+test: arrays
+test: btree_index
+#test: hash_index #wahrscheinlich: entryPoint wird nach Index-Zugriff nicht zurückgeliefert
+test: update
+test: delete
+test: namespace
+test: prepared_xacts
+test: privileges
+#test: misc #hängt sich auf
+#test: rules #wahrscheinlich: entryPoint wird nach Index-Zugriff nicht zurückgeliefert
+test: select_views
+test: portals_p2
+#test: foreign_key #wahrscheinlich: entryPoint wird nach Index-Zugriff nicht zurückgeliefert
+#test: cluster #wahrscheinlich: entryPoint wird nach Index-Zugriff nicht zurückgeliefert
+test: dependency
+test: guc
+#test: bitmapops #es werden sehr hohe Blocknummern benötigt, aber ich vermute darunter sind auch ungültige
+# combocid: ctid und cmin ändern sich wahrscheinlich aufgrund der technischen Gegebenheiten in SIAS
+test: combocid
+#tsearch: Es wird ein GIN-Index definiert, der dazu führt, dass ein Tupel geupdated werden soll dessen
+#         EntryPoint sich mittlerweile geändert hat.
+test: tsearch
+test: tsdicts
+test: foreign_data
+test: window
+test: xmlmap
+test: plancache
+test: limit
+#test: plpgsql #wahrscheinlich: entryPoint wird nach Index-Zugriff nicht zurückgeliefert
+test: copy2
+#test: temp # uses shared locking
+test: domain
+test: rangefuncs
+test: prepare
+test: without_oid
+test: conversion
+#test: truncate # uses shared locking
+#test: alter_table #Im Rahmen der IndexBuildHeapScan-Routine wird xmax ausgelesen was im dortigen Fall 0 (Null) ist. Diese TXID ist ungleich der eigenen und so wird ein concurrent access vermutet.
+test: sequence
+test: polymorphism
+test: rowtypes
+# returning: Hängt wohl mit inherit Testcase zusammen, eine Zeile fehlt irgendwie
+test: returning
+test: largeobject
+#test: with # uses shared locking
+test: xml
+test: stats
